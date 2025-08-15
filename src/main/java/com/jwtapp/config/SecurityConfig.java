@@ -24,19 +24,16 @@ public class SecurityConfig {
 
     private final UserService userService;
 
-    // ✅ Provide AuthenticationManager bean
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
         return authConfig.getAuthenticationManager();
     }
 
-    // ✅ Password Encoder
     @Bean
     public PasswordEncoder passwordEncoder() {
         return NoOpPasswordEncoder.getInstance(); // For testing only
     }
 
-    // ✅ DAO Authentication Provider
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -45,7 +42,6 @@ public class SecurityConfig {
         return authProvider;
     }
 
-    // ✅ Security Filter Chain
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**", "/authenticate"))
