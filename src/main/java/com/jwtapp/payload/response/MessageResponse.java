@@ -1,4 +1,4 @@
-package com.jwtapp.model;
+package com.jwtapp.payload.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthResponse {
-    private String jwt;
+public class MessageResponse {
+    private String message;
 }
