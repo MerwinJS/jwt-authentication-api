@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: jwt-authentication-api
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/auth_service?useSSL=false
+    username: root
+    password: root123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8080
+
+jwt:
+  secret: SGVsbG9Xb3JsZFNlY3JldEtleU9mTWluZTI1NkJpdHNMb25nIQ==
+  access-token-expiration: 900000
+  refresh-token-token-expiration: 604800000
