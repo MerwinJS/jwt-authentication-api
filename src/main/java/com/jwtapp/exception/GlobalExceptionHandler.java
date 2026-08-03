@@ -1,38 +1,39 @@
 package com.jwtapp.exception;
 
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.MalformedJwtException;
-import io.jsonwebtoken.SignatureException;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.server.ResponseStatusException;
 
-import java.util.HashMap;
+import java.time.Instant;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
-@ControllerAdvice
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(ExpiredJwtException.class)
-    public ResponseEntity<Map<String, String>> handleExpiredJwt(ExpiredJwtException ex) {
-        return errorResponse("JWT token has expired", HttpStatus.UNAUTHORIZED);
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<Map<String, Object>> handleConstraintViolation(ConstraintViolationException ex) {
+        return build(HttpStatus.BAD_REQUEST, ex.getMessage(), null);
     }
 
-    @ExceptionHandler({MalformedJwtException.class, SignatureException.class, IllegalArgumentException.class})
-    public ResponseEntity<Map<String, String>> handleInvalidJwt(Exception ex) {
-        return errorResponse("Invalid JWT token", HttpStatus.UNAUTHORIZED);
+    @ExceptionHandler(ResponseStatusException.class)
+    public ResponseEntity<Map<String, Object>> handleResponseStatus(ResponseStatusException ex) {
+        String message = ex.getReason() != null ? ex.getReason() : "Request failed";
+        return build(HttpStatus.valueOf(ex.getStatusCode().value()), message, null);
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<Map<String, String>> handleGeneralException(Exception ex) {
-        return errorResponse("An error occurred: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-
-    private ResponseEntity<Map<String, String>> errorResponse(String message, HttpStatus status) {
-        Map<String, String> error = new HashMap<>();
-        error.put("error", message);
-        error.put("status", String.valueOf(status.value()));
-        return new ResponseEntity<>(error, status);
+    private ResponseEntity<Map<String, Object>> build(HttpStatus status, String message, Object errors) {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", Instant.now().toString());
+        body.put("status", status.value());
+        body.put("error", status.getReasonPhrase());
+        body.put("message", message);
+        if (errors != null) {
+            body.put("errors", errors);
+        }
+        return ResponseEntity.status(status).body(body);
     }
 }
