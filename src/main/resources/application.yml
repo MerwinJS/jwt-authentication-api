@@ -21,4 +21,4 @@ server:
 jwt:
   secret: SGVsbG9Xb3JsZFNlY3JldEtleU9mTWluZTI1NkJpdHNMb25nIQ==
   access-token-expiration: 900000
-  refresh-token-token-expiration: 604800000
+  refresh-token-expiration: 604800000

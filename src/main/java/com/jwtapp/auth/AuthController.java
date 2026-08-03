@@ -2,6 +2,7 @@ package com.jwtapp.auth;
 
 import com.jwtapp.auth.dto.AuthResponse;
 import com.jwtapp.auth.dto.LoginRequest;
+import com.jwtapp.auth.dto.RefreshTokenRequest;
 import com.jwtapp.auth.dto.RegisterRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -26,5 +27,14 @@ public class AuthController {
         return authService.login(request);
     }
 
-    // add refresh token and logout endpoints
+    @PostMapping("/refresh")
+    public AuthResponse refresh(@Valid @RequestBody RefreshTokenRequest request) {
+        return authService.refresh(request);
+    }
+
+    @PostMapping("/logout")
+    public void logout(@Valid @RequestBody RefreshTokenRequest request) {
+        authService.logout(request);
+    }
+
 }
