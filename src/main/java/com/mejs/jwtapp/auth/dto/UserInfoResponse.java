@@ -1,6 +1,6 @@
-package com.jwtapp.auth.dto;
+package com.mejs.jwtapp.auth.dto;
 
-import com.jwtapp.user.Role;
+import com.mejs.jwtapp.user.Role;
 
 public record UserInfoResponse(Long id, String email, Role role) {
 }

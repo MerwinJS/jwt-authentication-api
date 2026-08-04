@@ -1,9 +1,9 @@
-package com.jwtapp.auth;
+package com.mejs.jwtapp.auth;
 
-import com.jwtapp.auth.dto.AuthResponse;
-import com.jwtapp.auth.dto.LoginRequest;
-import com.jwtapp.auth.dto.RefreshTokenRequest;
-import com.jwtapp.auth.dto.RegisterRequest;
+import com.mejs.jwtapp.auth.dto.AuthResponse;
+import com.mejs.jwtapp.auth.dto.LoginRequest;
+import com.mejs.jwtapp.auth.dto.RefreshTokenRequest;
+import com.mejs.jwtapp.auth.dto.RegisterRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

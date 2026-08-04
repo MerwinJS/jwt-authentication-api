@@ -1,4 +1,4 @@
-package com.jwtapp.security;
+package com.mejs.jwtapp.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

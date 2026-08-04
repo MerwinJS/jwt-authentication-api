@@ -1,6 +1,6 @@
-package com.jwtapp.token;
+package com.mejs.jwtapp.token;
 
-import com.jwtapp.user.AppUser;
+import com.mejs.jwtapp.user.AppUser;
 import jakarta.persistence.*;
 import lombok.*;
 

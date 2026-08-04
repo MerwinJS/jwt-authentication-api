@@ -1,7 +1,7 @@
-package com.jwtapp.user;
+package com.mejs.jwtapp.user;
 
-import com.jwtapp.auth.AuthService;
-import com.jwtapp.auth.dto.UserInfoResponse;
+import com.mejs.jwtapp.auth.AuthService;
+import com.mejs.jwtapp.auth.dto.UserInfoResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

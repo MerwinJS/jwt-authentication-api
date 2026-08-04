@@ -1,4 +1,4 @@
-package com.jwtapp.user;
+package com.mejs.jwtapp.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

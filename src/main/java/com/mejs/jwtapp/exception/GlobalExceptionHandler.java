@@ -1,4 +1,4 @@
-package com.jwtapp.exception;
+package com.mejs.jwtapp.exception;
 
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;

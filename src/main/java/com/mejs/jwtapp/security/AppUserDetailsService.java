@@ -1,6 +1,6 @@
-package com.jwtapp.security;
+package com.mejs.jwtapp.security;
 
-import com.jwtapp.user.UserRepository;
+import com.mejs.jwtapp.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

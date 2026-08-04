@@ -1,4 +1,4 @@
-package com.jwtapp.auth.dto;
+package com.mejs.jwtapp.auth.dto;
 
 public record AuthResponse(
         String accessToken,

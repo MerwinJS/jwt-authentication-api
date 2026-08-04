@@ -1,12 +1,12 @@
-package com.jwtapp.auth;
+package com.mejs.jwtapp.auth;
 
-import com.jwtapp.auth.dto.*;
-import com.jwtapp.security.JwtService;
-import com.jwtapp.token.RefreshToken;
-import com.jwtapp.token.RefreshTokenRepository;
-import com.jwtapp.user.AppUser;
-import com.jwtapp.user.Role;
-import com.jwtapp.user.UserRepository;
+import com.mejs.jwtapp.auth.dto.*;
+import com.mejs.jwtapp.security.JwtService;
+import com.mejs.jwtapp.token.RefreshToken;
+import com.mejs.jwtapp.token.RefreshTokenRepository;
+import com.mejs.jwtapp.user.AppUser;
+import com.mejs.jwtapp.user.Role;
+import com.mejs.jwtapp.user.UserRepository;
 import io.jsonwebtoken.JwtException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

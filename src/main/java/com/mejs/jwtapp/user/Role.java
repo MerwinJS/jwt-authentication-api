@@ -1,4 +1,4 @@
-package com.jwtapp.user;
+package com.mejs.jwtapp.user;
 
 public enum Role {
     USER,

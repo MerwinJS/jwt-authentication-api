@@ -1,4 +1,4 @@
-package com.jwtapp.security;
+package com.mejs.jwtapp.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
